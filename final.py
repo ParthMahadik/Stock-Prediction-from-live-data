@@ -4,23 +4,8 @@ import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 from keras.models import Sequential
 from keras.layers import Dense, LSTM
-from rtstock.stock import Stock
 from yahoo_fin.stock_info import *
 import matplotlib.pyplot as plt
-
-import bs4
-import requests
-import lxml
-from bs4 import BeautifulSoup
-
-#def parsePrice():
-    #r = requests.get('https://in.finance.yahoo.com/quote/FB?p=FB&.tsrc=fin-srch')
-    #soup=bs4.BeautifulSoup(r.text,"html")
-    #price = get_live_price('AAPL')
-    #return price
-
-#soup=bs4.BeautifulSoup(r.text,"html")
-#soup.find('div',{'class':'My(6px) Pos(r) smartphone_Mt(6px)'}).find('span').text
 
 l=['stock']
 for i in range(0,2000):
@@ -34,7 +19,7 @@ plt.figure(figsize=(16,8))
 plt.title('Close Price History')
 plt.plot(df['Close'])
 plt.xlabel('Time after start', fontsize= 18)
-plt.ylabel('Close Price USD ($)', fontsize=18)
+plt.ylabel('Close Price', fontsize=18)
 plt.show()
 
 data = df.filter(['Close'])
